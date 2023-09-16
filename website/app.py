@@ -54,6 +54,16 @@ class Team(db.Model):
     github_link = db.Column(db.String(1000))
 
 
+class Message(db.Model):
+    __tablename__ = 'messages'
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(100), nullable=False)
+    lastname = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(1000), nullable=False)
+    subject = db.Column(db.String(250), nullable=False)
+    content = db.Column(db.String(250), nullable=False)
+    
+
 
 @app.route('/')
 def index():
@@ -65,9 +75,33 @@ def about():
     teams = Team.query.all()
     return render_template('about.html', teams=teams)
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        firstname = request.form.get('firstname')
+        lastname = request.form.get('lastname')
+        email = request.form.get('email')
+        subject = request.form.get('subject')
+        content = request.form.get('content')
+        
+        new_message = Message(firstname=firstname, lastname=lastname, email=email, subject=subject, content=content)
+        db.session.add(new_message)
+        db.session.commit()
     return render_template('contact.html')
+
+@app.route('/admin-messages')
+def admin_message():
+    messages = Message.query.all()
+    return render_template('admin-message.html', messages=messages)
+
+# Delete Team
+@app.route('/message/<int:id>/delete', methods=['GET', 'DELETE'])
+def delete_message(id):
+    messages = Message.query.get_or_404(id)
+    db.session.delete(messages)
+    db.session.commit()
+    # flash("Team-member deleted successfully")
+    return redirect(url_for('admin_message'))
 
 @app.route('/product')
 def product():
