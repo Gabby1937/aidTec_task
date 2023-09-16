@@ -63,7 +63,7 @@ class Message(db.Model):
     subject = db.Column(db.String(250), nullable=False)
     content = db.Column(db.String(250), nullable=False)
     
-
+#route
 
 @app.route('/')
 def index():
