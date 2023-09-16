@@ -15,7 +15,7 @@ UPLOAD_FOLDER = './static/images'
 'postgresql://{username}:{password}@localhost:{port}/{database_name}'
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://master:ekka@localhost:5432/StudentTemplateDB'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://innesvxyyhtbxw:1559e941276c567b2cbed0411fb7cd602d1f71b335d5e9da3795d89e84fd2fcc@ec2-3-217-146-37.compute-1.amazonaws.com:5432/d6vo61j5dhl1kb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dpnleqcbnvnyrm:1e4b792766030495856f183cdeeac3df2398e6928fb6544d86c01a4136ed4bfe@ec2-34-236-103-63.compute-1.amazonaws.com:5432/dd5ul1elm1trjt'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wgekkbfslmumxo:2a063aa8d443e356df04d6515d8be7109ca7784ad30db6d7ad22e32b0436cd8e@ec2-34-233-242-44.compute-1.amazonaws.com:5432/d9k9m9sr5omapg'
 #'wgekkbfslmumxo:2a063aa8d443e356df04d6515d8be7109ca7784ad30db6d7ad22e32b0436cd8e@ec2-34-233-242-44.compute-1.amazonaws.com:5432/d9k9m9sr5omapg'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
