@@ -103,6 +103,7 @@ def delete_message(id):
     # flash("Team-member deleted successfully")
     return redirect(url_for('admin_message'))
 
+#for product veiw
 @app.route('/product')
 def product():
     products = Product.query.all()
